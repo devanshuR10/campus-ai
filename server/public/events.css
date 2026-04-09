@@ -1,0 +1,98 @@
+/* ===============================
+   CAMPUS AI MAP — MODERN UI 🌿✨
+   =============================== */
+
+:root {
+  --orange: #de7c33;
+  --green: #a3ad9b;
+  --beige: #f5f5f0;
+  --dark: #1e1e1e;
+  --bg: #f7f6f2;
+  --card: rgba(255, 255, 255, 0.75);
+  --text: #1f1f1f;
+  --muted: #6b6b6b;
+  --glass: blur(12px);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+#addEventBtn {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  background: #ff7a18;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 999;
+}
+
+#addEventBtn:hover {
+  background: #ff5500;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f7f6f2, #e8e6dc);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* HEADER */
+header.topbar {
+  background: linear-gradient(90deg, #1e1e1e, #2b2b2b);
+  color: white;
+  padding: 14px 24px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  display: flex;
+  justify-content: space-between;
+}
+
+.topbar-brand {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* INFO PANEL */
+.container {
+  padding: 12px 20px 0;
+}
+
+.info-card {
+  background: var(--card);
+  backdrop-filter: var(--glass);
+  border-left: 5px solid var(--orange);
+  border-radius: 12px;
+  padding: 12px 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+}
+
+.info-card p {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* MAP */
+#map {
+  flex: 1;
+  min-height: 300px;
+  margin: 12px 20px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+/* FOOTER */
+footer.footer {
+  background: linear-gradient(90deg, #1e1e1e, #2b2b2b);
+  color: rgba(255,255,255,0.7);
+  text-align: center;
+  padding: 12px;
+}

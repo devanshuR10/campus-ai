@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Campus Map</title>
+
+  <!-- Google Fonts (same as frontend) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/home.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/logo.png">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="topbar">
+  <div class="topbar-brand">Campus Map Navigation</div>
+</header>
+
+<!-- ================= INFO PANEL ================= -->
+<div class="container">
+
+  <div id="infoPanel" class="info-card">
+    <p id="distanceLeft">📍 Remaining: 0 meters</p>
+    <p id="status">⏳ Status: Waiting...</p>
+  </div>
+
+</div>
+
+<!-- ================= MAP ================= -->
+<div id="map"></div>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <p>© 2026 CampusAI — Smart Campus Navigation 🌿</p>
+</footer>
+
+<!-- ================= SCRIPTS ================= -->
+
+<!-- Your logic -->
+<script src="/script.js"></script>
+
+<!-- Google Maps -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8Yj1KnZlqcjdzgqElraLaktAaYyjRlqY&libraries=geometry&callback=initMap" async defer></script>
+
+</body>
+</html>

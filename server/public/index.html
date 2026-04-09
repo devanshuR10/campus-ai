@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Campus Tiet</title>
+  <link rel="icon" type="image/jpg" href="logo.jpg.jpeg">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    #userInput { transition: opacity 0.5s ease; }
+    .fade-out { opacity: 0; }
+
+    #chatBox {
+      display: none;
+    }
+
+    #chatBox:not(:empty) {
+      display: flex;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-content">
+
+    <nav class="topbar">
+      <div class="topbar-brand">
+        <img src="logo.jpg.jpeg" alt="logo" class="logo">
+        Campus<strong>AI</strong>
+      </div>
+      <ul class="topbar-links">
+        <li><a href="/map">Map</a></li>
+        <li><a href="#">Buildings</a></li>
+        <li><a href="/Events">Events</a></li>
+      </ul>
+    </nav>
+
+    <header class="hero">
+      <p class="hero-tag">Smart Campus Navigation</p>
+      <h2>Campus Explorer</h2>
+      <p class="hero-sub">Find places, explore campus and navigate easily.</p>
+    </header>
+
+    <!-- CHAT BOX FIRST — hidden until messages appear -->
+    <div id="chatBox"></div>
+
+    <!-- SEARCH BAR BELOW CHAT -->
+    <div class="search-section">
+      <div class="search-bar">
+        <input id="userInput" placeholder="Where do you want to go?" autocomplete="off"/>
+        <button id="searchBtn">Go</button>
+      </div>
+      <div class="chips">
+        <button class="chip" onclick="qs('Library')">📚 Library</button>
+        <button class="chip" onclick="qs('Cafeteria')">🍽️ Cafeteria</button>
+        <button class="chip" onclick="qs('Lab')">💻 Lab</button>
+        <button class="chip" onclick="qs('Admin')">🏛️ Admin</button>
+        <button class="chip" onclick="qs('Sports')">🎾 Sports</button>
+        <button class="chip" onclick="qs('Medical')">🏥 Medical</button>
+      </div>
+    </div>
+
+    <!-- RECOMMENDED PLACES -->
+ <!--  /* <div class="recommended-section">
+      <h2 class="recommended-title">Recommended Places</h2>
+      <div id="recommendedCards" class="recommended-grid">
+        <div class="rec-skeleton"></div>
+        <div class="rec-skeleton"></div>
+      </div>
+    </div>*/-->
+
+  </div>
+
+  <footer class="footer">
+    <p>© 2026 Campus AI — Smart Navigation System 🧭</p>
+  </footer>
+
+  <script src="ui.js"></script>
+</body>
+</html>
