@@ -6,10 +6,10 @@
 "license": "ISC",
 "author": "ahsdhahda",
 "type": "commonjs",
-"main": "server/server.js",
+"main": "server.js",
 "scripts": {
-"dev": "nodemon server/server.js",
-"start": "node server/server.js"
+"dev": "nodemon server.js",
+"start": "node server.js"
 },
 "dependencies": {
 "@google/generative-ai": "^0.24.1",
