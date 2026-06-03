@@ -45,7 +45,16 @@
 <script src="/script.js"></script>
 
 <!-- Google Maps -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8Yj1KnZlqcjdzgqElraLaktAaYyjRlqY&libraries=geometry&callback=initMap" async defer></script>
-
+<script>
+    fetch('/config')
+        .then(res => res.json())
+        .then(config => {
+            const script = document.createElement('script');
+            script.src = `https://maps.googleapis.com/maps/api/js?key=${config.googleMapsApiKey}&libraries=geometry&callback=initMap`;
+            script.async = true;
+            script.defer = true;
+            document.head.appendChild(script);
+        });
+</script>
 </body>
 </html>
