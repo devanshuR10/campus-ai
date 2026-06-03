@@ -43,17 +43,11 @@ app.set("views", path.join(__dirname, "views"));
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "../client")));
-/*
+
 app.use("/api", ai);
 app.use("/", user);
-app.use("/events", events);*/
-app.get("/", (req, res) => {
-  res.send("Railway is working!");
-});
+app.use("/events", events);
 
-app.get("/health", (req, res) => {
-  res.send("OK");
-});
 
 app.get("/config", (req, res) => {
 res.json({
