@@ -41,7 +41,22 @@ const options = {
   key: fs.readFileSync("key.pem"),
   cert: fs.readFileSync("cert.pem"),
 };
+const PORT = process.env.PORT || 1200;
 
-https.createServer(options, app).listen(1200, () => {
-  console.log("HTTPS Server running at https://localhost:1200");
-});
+if (process.env.NODE_ENV === 'production') {
+  // Railway - plain HTTP
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+} else {
+  // Local - HTTPS
+  const https = require("https");
+  const fs = require("fs");
+  const options = {
+    key: fs.readFileSync("key.pem"),
+    cert: fs.readFileSync("cert.pem"),
+  };
+  https.createServer(options, app).listen(PORT, () => {
+    console.log(`HTTPS Server running at https://localhost:${PORT}`);
+  });
+}
