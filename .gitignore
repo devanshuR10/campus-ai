@@ -1,0 +1,6 @@
+node_modules/
+server/api.env
+server/campus_backup.sql
+server/campus_backup2.sql
+server/cert.pem
+server/key.pem
