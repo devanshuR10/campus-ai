@@ -64,7 +64,7 @@ async function initMap() {
 }
 
 async function loadNodes() {
-  const res = await fetch("https://localhost:1200/nodes");
+  const res = await fetch("/nodes");
   const data = await res.json();
 
   data.forEach(place => {
@@ -196,7 +196,7 @@ function trackUserLiveTour() {
 
     // Route to current stop
     const start = findNearestNode(userLocation.lat, userLocation.lng);
-    const res = await fetch("https://localhost:1200/route", {
+    const res = await fetch("/route", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ start, end: currentStop })
