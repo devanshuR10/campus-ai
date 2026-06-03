@@ -253,7 +253,7 @@ async function startRouting() {
   if (!userLocation) return;
   const start = findNearestNode(userLocation.lat, userLocation.lng);
 
-  const res = await fetch("https://localhost:1200/route", {
+  const res = await fetch("/route", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ start, end: destination })
@@ -333,7 +333,7 @@ async function updateNavigation() {
 
   if (minDist > 30) {
     const newStart = findNearestNode(userLocation.lat, userLocation.lng);
-    const res = await fetch("https://localhost:1200/route", {
+    const res = await fetch("/route", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ start: newStart, end: destination })

@@ -30,7 +30,7 @@ function qs(val) {
 
 async function loadAllPlaces() {
   try {
-    const res = await fetch("https://localhost:1200/nodes");
+    const res = await fetch("/nodes");
     allPlaces = await res.json();
   } catch (err) {
     console.error("Failed to load places:", err);
@@ -47,7 +47,7 @@ async function searchPlace() {
   document.getElementById("userInput").value = "";
 
   try {
-    const res = await fetch("https://localhost:1200/api", {
+    const res = await fetch("/api", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message: userText, sessionId })
