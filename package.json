@@ -1,0 +1,31 @@
+{
+"name": "project",
+"version": "1.0.0",
+"description": "trying npm",
+"keywords": [],
+"license": "ISC",
+"author": "ahsdhahda",
+"type": "commonjs",
+"main": "server/server.js",
+"scripts": {
+"dev": "nodemon server/server.js",
+"start": "node server/server.js"
+},
+"dependencies": {
+"@google/generative-ai": "^0.24.1",
+"body-parser": "^2.2.2",
+"dotenv": "^17.4.2",
+"ejs": "^5.0.1",
+"express": "^5.2.1",
+"express-session": "^1.19.0",
+"fs": "^0.0.1-security",
+"groq-sdk": "^1.1.2",
+"https": "^1.0.0",
+"openai": "^6.33.0",
+"pg": "^8.20.0",
+"postgres": "^3.4.8"
+},
+"devDependencies": {
+"nodemon": "^3.1.14"
+}
+}
