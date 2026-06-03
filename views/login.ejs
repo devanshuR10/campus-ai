@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Campus AI</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #e9e6df;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background-color: #2c2c2c;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 40px;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #d48a47;
+    }
+
+    /* LOGIN BOX */
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 85vh;
+    }
+
+    .login-box {
+      background: #f4f1ea;
+      padding: 40px;
+      border-radius: 20px;
+      width: 350px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+
+    .login-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+
+    .login-box h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    /* INPUTS */
+    .input-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .input-group label {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .input-group input:focus {
+      border-color: #d48a47;
+      box-shadow: 0 0 5px rgba(212,138,71,0.5);
+    }
+
+    /* BUTTON */
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #d48a47;
+      border: none;
+      border-radius: 20px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #b87438;
+      transform: scale(1.05);
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #2c2c2c;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="logo">Campus AI</div>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/map">Map</a>
+      <a href="/events">Events</a>
+    </div>
+  </div>
+
+  <!-- LOGIN FORM -->
+  <div class="container">
+    <div class="login-box">
+      <% if (error) { %>
+  <div style="color:red; margin-bottom:10px;">
+    <%= error %>
+  </div>
+<% } %>
+      <h2>Login</h2>
+
+      <form action="/events/login" method="POST">
+        <div class="input-group">
+          <label>User name</label>
+          <input type="username" name="username" required>
+        </div>
+
+        <div class="input-group">
+          <label>Password</label>
+          <input type="password" name="password" required>
+        </div>
+
+        <button class="btn" >Login</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 Campus AI — Smart Navigation System 🌍
+  </footer>
+   <script src="/login.js"></script>
+</body>
+</html>

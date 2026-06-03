@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= place.place_name %></title>
+  <link rel="icon" type="image/jpg" href="/logo.jpg.jpeg">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css"/>
+  <style>
+    body { display: flex; flex-direction: column; min-height: 100vh; }
+    .page-content { flex: 1; padding: 40px 20px; }
+
+    .info-card {
+      max-width: 700px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    }
+
+    .info-img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .info-img-placeholder {
+      width: 100%;
+      height: 300px;
+      background: #eae7df;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+    }
+
+    .info-body {
+      padding: 30px;
+    }
+
+    .info-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: #2b2b2b;
+      text-transform: capitalize;
+      margin-bottom: 12px;
+    }
+
+    .info-desc {
+      color: #6b6b6b;
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .info-tag {
+      display: inline-block;
+      background: #d6d7c5;
+      color: #2b2b2b;
+      padding: 4px 14px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .info-navigate-btn {
+      display: inline-block;
+      background: #de7c33;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .info-navigate-btn:hover {
+      background: #c96c28;
+      transform: scale(1.03);
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="topbar">
+    <div class="topbar-brand">
+      <img src="/logo.jpg.jpeg" alt="logo" class="logo">
+      Campus<strong>AI</strong>
+    </div>
+    <ul class="topbar-links">
+      <li><a href="/map">Map</a></li>
+      <li><a href="#">Buildings</a></li>
+     
+    </ul>
+  </nav>
+
+  <div class="page-content">
+    <div class="info-card">
+
+      <% if (place.image_url) { %>
+        <img class="info-img" src="<%= place.image_url %>" alt="<%= place.place_name %>" onerror="this.style.display='none'"/>
+      <% } else { %>
+        <div class="info-img-placeholder">📍</div>
+      <% } %>
+
+      <div class="info-body">
+       <!-- <span class="info-tag"><%= place.remark || 'Campus' %></span>-->
+        <h1 class="info-name"><%= place.place_name %></h1>
+        <p class="info-desc">
+          <%= place.description || 'No description available for this place yet.' %>
+        </p>
+        <a class="info-navigate-btn" href="/map?dest=<%= encodeURIComponent(place.place_name.toLowerCase()) %>">
+          Navigate Here →
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>© 2026 Campus AI — Smart Navigation System 🧭</p>
+  </footer>
+
+</body>
+</html>

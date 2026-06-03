@@ -1,0 +1,228 @@
+/* ===============================
+   CAMPUS AI MAP — MODERN UI 🌿✨
+   =============================== */
+
+:root {
+  --orange: #de7c33;
+  --green: #a3ad9b;
+  --beige: #f5f5f0;
+  --dark: #1e1e1e;
+  --bg: #f7f6f2;
+  --card: rgba(255, 255, 255, 0.75);
+  --text: #1f1f1f;
+  --muted: #6b6b6b;
+  --glass: blur(12px);
+}
+
+/* ===============================
+   BASE
+   =============================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f7f6f2, #e8e6dc);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ===============================
+   HEADER / TOPBAR
+   =============================== */
+
+header.topbar {
+  background: linear-gradient(90deg, #1e1e1e, #2b2b2b);
+  color: white;
+  padding: 14px 24px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.topbar-brand {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: white;
+}
+
+/* ===============================
+   INFO PANEL
+   =============================== */
+
+.container {
+  padding: 12px 20px 0;
+  flex-shrink: 0;
+}
+
+.info-card {
+  background: var(--card);
+  backdrop-filter: var(--glass);
+  border-left: 5px solid var(--orange);
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+  border-top: 1px solid rgba(255,255,255,0.5);
+  border-right: 1px solid rgba(255,255,255,0.5);
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+}
+
+.info-card p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.info-card p:first-child {
+  color: var(--orange);
+  font-weight: 600;
+}
+
+/* ===============================
+   MAP
+   =============================== */
+
+#map {
+  flex: 1;
+  min-height: 300px;
+  margin: 12px 20px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid rgba(0,0,0,0.05);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+/* ===============================
+   FOOTER
+   =============================== */
+
+footer.footer {
+  background: linear-gradient(90deg, #1e1e1e, #2b2b2b);
+  color: rgba(255,255,255,0.7);
+  text-align: center;
+  padding: 12px 20px;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+
+footer.footer p {
+  margin: 0;
+}
+
+/* ===============================
+   GOOGLE MAP CONTROLS
+   =============================== */
+
+.gm-style button {
+  border-radius: 10px !important;
+}
+
+/* ===============================
+   MOBILE  ≤ 600px
+   =============================== */
+
+@media (max-width: 600px) {
+
+  .topbar-brand {
+    font-size: 15px;
+    letter-spacing: 0.5px;
+  }
+
+  header.topbar {
+    padding: 12px 14px;
+    justify-content: center;
+  }
+
+  .container {
+    padding: 10px 10px 0;
+  }
+
+  .info-card {
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px 14px;
+    border-radius: 10px;
+  }
+
+  .info-card p {
+    font-size: 12px;
+  }
+
+  #map {
+    margin: 10px;
+    border-radius: 12px;
+    min-height: 250px;
+  }
+
+  footer.footer {
+    font-size: 11px;
+    padding: 10px 14px;
+  }
+}
+
+/* ===============================
+   TABLET  601px – 1024px
+   =============================== */
+
+@media (min-width: 601px) and (max-width: 1024px) {
+
+  .topbar-brand {
+    font-size: 17px;
+  }
+
+  .container {
+    padding: 14px 16px 0;
+  }
+
+  .info-card {
+    gap: 16px;
+  }
+
+  #map {
+    margin: 12px 16px;
+    border-radius: 14px;
+  }
+}
+
+/* ===============================
+   DESKTOP  ≥ 1025px
+   =============================== */
+
+@media (min-width: 1025px) {
+
+  .topbar-brand {
+    font-size: 20px;
+  }
+
+  .container {
+    padding: 16px 24px 0;
+  }
+
+  .info-card {
+    gap: 24px;
+  }
+
+  #map {
+    margin: 14px 24px;
+    border-radius: 16px;
+  }
+
+  footer.footer {
+    font-size: 13px;
+    padding: 14px 24px;
+  }
+}
