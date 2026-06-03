@@ -48,6 +48,10 @@ app.use("/api", ai);
 app.use("/", user);
 app.use("/events", events);
 
+router.get("/", (req, res) => {
+  console.log("HOME ROUTE HIT");
+  res.render("home");
+});
 
 app.get("/config", (req, res) => {
 res.json({
