@@ -1,23 +1,30 @@
 const express = require("express");
-require('dotenv').config({ path: './api.env' });
+require("dotenv").config({ path: "./api.env" });
+
 const bodyParser = require("body-parser");
 const path = require("path");
 const session = require("express-session");
 
 const app = express();
+
 const user = require("./routes/user");
 const ai = require("./routes/ai");
 const events = require("./routes/event_routs");
 
-app.use(session({
-  secret: "secret123",
-  resave: false,
-  saveUninitialized: true
-}));
+// Trust Railway proxy
+app.set("trust proxy", 1);
+
+app.use(
+session({
+secret: "secret123",
+resave: false,
+saveUninitialized: true,
+})
+);
 
 app.use((req, res, next) => {
-  console.log(`${req.method} request for '${req.url}'`);
-  next();
+console.log(`${req.method} request for '${req.url}'`);
+next();
 });
 
 app.use(bodyParser.json());
@@ -33,24 +40,19 @@ app.use("/api", ai);
 app.use("/", user);
 app.use("/events", events);
 
-app.get('/config', (req, res) => {
-    res.json({ googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY });
+app.get("/config", (req, res) => {
+res.json({
+googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY,
+});
 });
 
-const PORT = process.env.PORT || 1200;
+// Health check route
+app.get("/health", (req, res) => {
+res.status(200).send("Server is healthy");
+});
 
-if (process.env.NODE_ENV === 'production') {
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-  });
-} else {
-  const https = require("https");
-  const fs = require("fs");
-  const options = {
-    key: fs.readFileSync("key.pem"),
-    cert: fs.readFileSync("cert.pem"),
-  };
-  https.createServer(options, app).listen(PORT, () => {
-    console.log(`HTTPS Server running at https://localhost:${PORT}`);
-  });
-}
+const PORT = process.env.PORT || 8080;
+
+app.listen(PORT, () => {
+console.log(`Server running on port ${PORT}`);
+});
