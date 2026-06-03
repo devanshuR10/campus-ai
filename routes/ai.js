@@ -4,11 +4,11 @@ const Groq = require("groq-sdk");
 const { Pool } = require("pg");
 require('dotenv').config({ path: '../api.env' });
 const pool = new Pool({
-  user: "postgres",
-  host: "localhost",
-  database: "coordinates",
-  password: "1234",
-  port: 5432,
+    host: process.env.PGHOST,
+    port: process.env.PGPORT,
+    user: process.env.PGUSER,
+    password: process.env.PGPASSWORD,
+    database: process.env.PGDATABASE,
 });
 
 const groq = new Groq({

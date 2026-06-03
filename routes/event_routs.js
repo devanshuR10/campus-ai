@@ -2,13 +2,12 @@ const express = require("express");
 const router = express.Router();
 const { Pool } = require("pg");
 
-// 🔗 DATABASE CONNECTION
 const pool = new Pool({
-  user: "postgres",
-  host: "localhost",
-  database: "coordinates",
-  password: "1234",
-  port: 5432,
+    host: process.env.PGHOST,
+    port: process.env.PGPORT,
+    user: process.env.PGUSER,
+    password: process.env.PGPASSWORD,
+    database: process.env.PGDATABASE,
 });
 
 // 🔐 Auth Middleware
