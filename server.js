@@ -7,6 +7,14 @@ const session = require("express-session");
 
 const app = express();
 
+process.on("uncaughtException", (err) => {
+  console.error("UNCAUGHT EXCEPTION:", err);
+});
+
+process.on("unhandledRejection", (err) => {
+  console.error("UNHANDLED REJECTION:", err);
+});
+
 const user = require("./routes/user");
 const ai = require("./routes/ai");
 const events = require("./routes/event_routs");
@@ -35,10 +43,17 @@ app.set("views", path.join(__dirname, "views"));
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "../client")));
-
+/*
 app.use("/api", ai);
 app.use("/", user);
-app.use("/events", events);
+app.use("/events", events);*/
+app.get("/", (req, res) => {
+  res.send("Railway is working!");
+});
+
+app.get("/health", (req, res) => {
+  res.send("OK");
+});
 
 app.get("/config", (req, res) => {
 res.json({
