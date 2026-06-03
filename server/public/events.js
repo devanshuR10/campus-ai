@@ -1,3 +1,5 @@
+let selectedPlace = null;
+
 function initMap() {
   const center = { lat: 30.353, lng: 76.37 };
 
@@ -7,39 +9,23 @@ function initMap() {
     mapTypeId: "satellite"
   });
 
-  // 🎨 Colors for markers
-  const colors = [
-    "red",
-    "blue",
-    "green",
-    "purple",
-    "orange",
-    "pink",
-    "yellow"
-  ];
-
+  const colors = ["red", "blue", "green", "purple", "orange", "pink", "yellow"];
   const locations = {};
 
-  // 📍 Group events by same lat/lng
   events.forEach(event => {
     const lat = parseFloat(event.lat);
     const lng = parseFloat(event.lng);
-
     const key = `${lat},${lng}`;
     if (!locations[key]) locations[key] = [];
-
     locations[key].push(event);
   });
 
   let colorIndex = 0;
 
-  // 🔁 Loop grouped locations
   Object.keys(locations).forEach(key => {
     const eventList = locations[key];
     const lat = parseFloat(eventList[0].lat);
     const lng = parseFloat(eventList[0].lng);
-
-    // 🎯 Assign different color per location
     const color = colors[colorIndex % colors.length];
     colorIndex++;
 
@@ -49,13 +35,11 @@ function initMap() {
       icon: `http://maps.google.com/mapfiles/ms/icons/${color}-dot.png`
     });
 
-    // 🧠 Click → show ALL events at that location
     marker.addListener("click", () => {
-      let html = `
-        <h2 style="color: var(--orange);">
-          Events at this location
-        </h2>
-      `;
+      // ✅ Set selected place for navigation
+      selectedPlace = eventList[0].place_name;
+
+      let html = `<h2 style="color: var(--orange);">Events at this location</h2>`;
 
       eventList.forEach(e => {
         html += `
@@ -70,6 +54,18 @@ function initMap() {
       });
 
       document.getElementById("eventDetails").innerHTML = html;
+
+      // ✅ Show navigate button
+      document.getElementById("navBtnContainer").style.display = "block";
     });
   });
 }
+
+function navigateToPlace() {
+  if (!selectedPlace) return;
+  window.location.href = `/map?dest=${encodeURIComponent(selectedPlace)}`;
+}
+
+document.getElementById("addEventBtn").addEventListener("click", () => {
+  window.location.assign('/events/login');
+});

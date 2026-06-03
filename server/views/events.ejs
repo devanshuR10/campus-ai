@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Events</title>
-
     <link rel="stylesheet" href="/events.css">
 </head>
 <body>
@@ -19,6 +18,11 @@
     <div class="info-card" id="eventDetails">
         <p>Click a building marker to view events</p>
     </div>
+
+    <div id="navBtnContainer" style="display:none; margin-top: 10px;">
+        <button id="navigateBtn" onclick="navigateToPlace()">🧭 Navigate to this place</button>
+    </div>
+
     <button id="addEventBtn">+ Add Event</button>
 </div>
 
@@ -30,15 +34,10 @@
     <p>© 2026 Campus AI</p>
 </footer>
 
-<!-- EVENTS DATA -->
 <script>
   const events = <%- JSON.stringify(events) %>;
 </script>
-
 <script src="/events.js"></script>
-
-<!-- GOOGLE MAP -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8Yj1KnZlqcjdzgqElraLaktAaYyjRlqY&libraries=geometry&callback=initMap" async defer></script>
-
 </body>
 </html>

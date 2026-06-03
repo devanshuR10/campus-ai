@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add Event — Campus AI</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/addevent.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="topbar">
+  <div class="topbar-left">
+    
+    <div class="logo-text">Campus AI</div>
+  </div>
+
+  <div class="topbar-right">
+    <a href="/map">Map</a>
+    <a href="/buildings">Buildings</a>
+    <a href="/events">Events</a>
+  </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<div class="main-container">
+
+  <div class="card">
+    <h2>Add Event</h2>
+
+    <!-- ✅ CONNECTED FORM -->
+    <form id="eventForm">
+
+      <label>Host / Society</label>
+      <input type="text" name="title" placeholder="e.g. Coding Club" required />
+
+      <label>Time</label>
+      <input type="datetime-local" name="event_time" required />
+
+      <label>Description</label>
+      <textarea name="description" placeholder="Event details..."></textarea>
+
+      <!-- 🔥 FIXED LOCATION SEARCH -->
+      <label>Location</label>
+      <input type="text" id="locationInput" placeholder="Search place..." autocomplete="off" />
+      <div id="suggestions" class="suggestions"></div>
+      <!-- hidden place_id -->
+      <input type="hidden" id="placeIdInput" name="place_id" />
+
+      <button type="submit" class="btn">+ Add Event</button>
+    </form>
+
+    <!-- dropdown -->
+    <div id="searchResults" class="search-results"></div>
+
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  © 2026 Campus AI — Smart Navigation System 🌍
+</footer>
+
+<!-- ✅ JS -->
+<script src="/addevent.js"></script>
+
+</body>
+</html>

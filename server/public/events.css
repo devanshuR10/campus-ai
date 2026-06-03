@@ -96,3 +96,27 @@ footer.footer {
   text-align: center;
   padding: 12px;
 }
+
+#navigateBtn {
+  width: 100%;
+  background: linear-gradient(135deg, #de7c33, #c0622a);
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 25px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(222, 124, 51, 0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+  letter-spacing: 0.3px;
+}
+
+#navigateBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(222, 124, 51, 0.6);
+}
+
+#navigateBtn:active {
+  transform: translateY(0);
+}

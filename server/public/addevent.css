@@ -1,0 +1,157 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Syne', sans-serif;
+}
+
+body {
+  background: #f6f4ef;
+}
+
+/* HEADER */
+.topbar {
+  height: 70px;
+  background: linear-gradient(to right, #1c1c1c, #2c2c2c);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-box {
+  background: #e74c3c;
+  color: white;
+  padding: 6px 10px;
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.topbar-right a {
+  color: white;
+  text-decoration: none;
+  margin-left: 25px;
+  transition: 0.3s;
+}
+
+.topbar-right a:hover {
+  color: #d48a47;
+}
+
+/* CENTERING */
+.main-container {
+  height: calc(100vh - 140px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CARD */
+.card {
+  background: #f4f1ea;
+  padding: 35px;
+  width: 350px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h2 {
+  margin-bottom: 20px;
+}
+
+/* FORM */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+input, textarea {
+  margin-top: 5px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: 0.3s;
+}
+
+input:focus, textarea:focus {
+  border-color: #d48a47;
+  box-shadow: 0 0 5px rgba(212,138,71,0.4);
+}
+
+textarea {
+  resize: none;
+  height: 80px;
+}
+
+/* BUTTON */
+.btn {
+  margin-top: 20px;
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  background: #d48a47;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #b87438;
+  transform: scale(1.05);
+}
+
+/* FOOTER */
+.footer {
+  height: 70px;
+  background: linear-gradient(to right, #1c1c1c, #2c2c2c);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-results {
+  margin-top: 5px;
+  background: white;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  max-height: 150px;
+  overflow-y: auto;
+  display: none;
+}
+
+.search-results div {
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.search-results div:hover {
+  background: #f0f0f0;
+}

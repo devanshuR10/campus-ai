@@ -3,13 +3,12 @@ const router = express.Router();
 const dijkstra = require("../dijkstra");
 const { Pool } = require("pg");
 
-// 🔗 DATABASE CONNECTION
 const pool = new Pool({
-  user: "postgres",
-  host: "localhost",
-  database: "coordinates",
-  password: "1234",
-  port: 5432,
+    host: process.env.PGHOST,
+    port: process.env.PGPORT,
+    user: process.env.PGUSER,
+    password: process.env.PGPASSWORD,
+    database: process.env.PGDATABASE,
 });
 
 
@@ -202,17 +201,18 @@ router.get("/events", async (req, res) => {
   try {
     const result = await pool.query(`
       SELECT 
-        events.id,
-        events.title,
-        events.description,
-        events.event_time,
-        events.lat,
-        events.lng,
-        societies.name AS society_name
-      FROM events
-      JOIN societies 
-      ON events.society_id = societies.id
-      ORDER BY events.event_time ASC
+        e.id,
+        e.title,
+        e.description,
+        e.event_time,
+        p.lat,
+        p.lng,
+        p.place_name,
+        s.name AS society_name
+      FROM events e
+      JOIN places p ON e.place_id = p.place_id
+      JOIN societies s ON e.society_id = s.id
+      ORDER BY e.event_time ASC
     `);
 
     res.render("events", {
