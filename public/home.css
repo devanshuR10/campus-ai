@@ -55,6 +55,21 @@ header.topbar {
   color: white;
 }
 
+.topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: white;
+}
+
+.logo {
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
+}
 /* ===============================
    INFO PANEL
    =============================== */
