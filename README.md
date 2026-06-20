@@ -4,6 +4,8 @@ Campus AI is a smart campus navigation and event management platform that helps 
 
 ---
 
+
+live link :https://campus-ai-fe4y.onrender.com/
 ## 🚀 Features
 
 ### 🗺️ Smart Campus Navigation
@@ -196,5 +198,5 @@ http://localhost:8080
 This project is developed for educational and academic purposes.
 
 ---
-
+ live link :https://campus-ai-fe4y.onrender.com/
 ⭐ If you found this project useful, consider giving it a star.
